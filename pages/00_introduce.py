@@ -1,4 +1,3 @@
-pip install streamlit
 import streamlit as st
 
 # 1. 페이지 설정
