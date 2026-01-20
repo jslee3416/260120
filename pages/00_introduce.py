@@ -1,39 +1,52 @@
 import streamlit as st
 
 # 1. 페이지 설정
-st.set_page_config(page_title="나의 자기소개 페이지", page_icon="🍃")
+st.set_page_config(
+    page_title="Marine's Briefing Room",
+    page_icon="🔫",
+    layout="centered"
+)
 
-# 2. 사이드바 (선택 사항)
-st.sidebar.title("연락처")
-st.sidebar.info("📧 이메일: example@email.com")
-st.sidebar.info("💻 GitHub: github.com/username")
+# 2. 제목 및 인사말
+st.title("🛡️ 테란 마린의 자기소개")
+st.subheader("“Go, go, go! 작전 개시합니다.”")
 
-# 3. 메인 화면 구성
-st.title("안녕하세요! 만나서 반가워요 👋")
+# 3. 마린 이미지 추가 (Unsplash 또는 외부 링크 사용)
+# 공식 이미지를 직접 제공할 수 없으므로, 테란 마린 느낌의 로봇/SF 이미지를 불러옵니다.
+st.image(
+    "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", 
+    caption="준비 완료! (Ready to Rollout!)",
+    use_container_width=True
+)
 
-# 토토로 이미지 추가 (URL 사용)
-# 만약 로컬 이미지를 쓰고 싶다면 이미지 파일명을 따옴표 안에 넣으세요.
-totoro_url = "https://upload.wikimedia.org/wikipedia/en/0/02/My_Neighbor_Totoro_poster_main_characters.jpg"
-st.image(totoro_url, caption="귀여운 토토로와 함께하는 저의 공간입니다!", width=400)
+# 4. 자기소개 섹션
+st.markdown("---")
+st.header("👤 프로필")
+col1, col2 = st.columns(2)
 
-st.header("소개")
-st.write("""
-안녕하세요! 저는 새로운 기술을 배우고 공유하는 것을 좋아하는 개발자입니다. 
-지브리 애니메이션처럼 따뜻하고 재미있는 가치를 만드는 것에 관심이 많아요.
-""")
-
-# 4. 간단한 정보 테이블
-st.subheader("관심 분야")
-col1, col2, col3 = st.columns(3)
 with col1:
-    st.button("Python")
-with col2:
-    st.button("Streamlit")
-with col3:
-    st.button("Data Science")
+    st.write("**이름:** 테란 마린 (Terran Marine)")
+    st.write("**소속:** 테란 연합 (Terran Confederacy)")
+    st.write("**주특기:** 가우스 라이플 사격, 스팀팩 복용")
 
-# 5. 방명록 기능 (간단한 입력창)
-st.divider()
-name = st.text_input("당신의 성함은 무엇인가요?")
-if name:
-    st.success(f"{name}님, 방문해 주셔서 감사합니다!  Totoro says Hi! 🍃")
+with col2:
+    st.write("**계급:** 해병 (Private)")
+    st.write("**취미:** 벙커 안에서 수다 떨기")
+    st.write("**좌우명:** " "You want a piece of me, boy?" "")
+
+# 5. 기술 스택 (능력치)
+st.markdown("---")
+st.header("⚔️ 전투 능력치")
+st.write("공격력")
+st.progress(60)
+st.write("방어력")
+st.progress(40)
+st.write("스팀팩 활용도")
+st.progress(95)
+
+# 6. 연락처
+st.markdown("---")
+st.info("📧 사령부로 연락하기: marine@terran.com")
+
+# 하단 푸터
+st.caption("© 2026 Koprulu Sector. All rights reserved.")
